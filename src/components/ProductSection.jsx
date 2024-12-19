@@ -27,7 +27,7 @@ const ProductSection = ({ title, products = [], loading }) => {
                   <ProductCard product={product} key={index} />
                 ))
               ) : (
-                <h1>No similar product</h1>
+                <h1 style={{textAlign:"center"}}>No similar product</h1>
               )}
             </div>
           </div>

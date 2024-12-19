@@ -1,8 +1,8 @@
 import * as Auth from "./auth";
 
-import * as CustomerVisible from "./CustomerVisiblePage";
+import * as Customer from "./Customer";
 
 
 import * as Profile from "./Profile"
 
-export { Auth, CustomerVisible , Profile}
+export { Auth, Customer , Profile}

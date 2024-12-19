@@ -14,24 +14,24 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Pages.CustomerVisible.Home />} />
+            <Route index element={<Pages.Customer.Home />} />
 
             <Route path="register" element={<Pages.Auth.Register />} />
             <Route path="login" element={<Pages.Auth.Login />} />
             <Route
               path="product/:id"
-              element={<Pages.CustomerVisible.Detail />}
+              element={<Pages.Customer.Detail />}
             />
             <Route
               path="category/:id"
-              element={<Pages.CustomerVisible.Categories />}
+              element={<Pages.Customer.Categories />}
             />
-            <Route path="brand/:id" element={<Pages.CustomerVisible.Brand />} />
-            <Route path="search" element={<Pages.CustomerVisible.Search />} />
+            <Route path="brand/:id" element={<Pages.Customer.Brand />} />
+            <Route path="search" element={<Pages.Customer.Search />} />
             <Route
               path="cart"
               element={
-                <PrivateRoute element={<Pages.CustomerVisible.Cart />} />
+                <PrivateRoute element={<Pages.Customer.Cart />} />
               }
             />
              <Route
