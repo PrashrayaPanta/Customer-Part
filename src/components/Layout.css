@@ -43,6 +43,39 @@ a {
 
 }
 
+.image-stacked-content{
+    position: relative;
+
+}
+
+
+.stacked-content{
+
+  background-color: yellow;
+  position: absolute;
+  top:270px;
+  left:200px;
+  animation: movefrombottomtotopforstackedcontent 1s;
+
+}
+
+
+@keyframes movefrombottomtotopforstackedcontent {
+
+
+  0%{
+    transform: translateY(100px);
+  }
+
+
+  100%{
+
+    transform: translateY(0);
+  }
+
+  
+}
+
 
 @keyframes movefrombottomtotop {
 
