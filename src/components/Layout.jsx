@@ -118,10 +118,10 @@ const Layout = () => {
       <div class="container-fluid">
         <div class="row min-vh-100">
           <div class="col-12">
-            <header class="row">
-              <div class="col-12 bg-dark py-2 d-md-block d-none">
+            <header class="row " >
+              <div class="col-12 bg-dark py-2 d-md-block">
                 <div class="row">
-                  <div class="col-auto me-auto">
+                  <div class="col-auto me-auto bg-primary">
                     <ul class="top-nav">
                       <li>
                         <a href="tel:+123-456-7890">
@@ -135,7 +135,7 @@ const Layout = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="col-auto">
+                  <div class="col-auto bg-secondary">
                     <ul class="top-nav">
                       {user ? (
                         <>

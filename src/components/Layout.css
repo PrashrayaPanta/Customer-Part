@@ -39,6 +39,27 @@ a {
   font-size: 2rem;
   line-height: 1;
   font-family: "Righteous", cursive;
+  animation: movefrombottomtotop 1s;
+
+}
+
+
+@keyframes movefrombottomtotop {
+
+  0%{
+
+      transform: translateY(20px);
+     
+
+  }
+  100%{
+
+    transform: translateY(0px)
+
+
+  }
+
+  
 }
 
 .site-logo img {

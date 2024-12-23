@@ -2,6 +2,11 @@ import React from 'react'
 import { Carousel, CarouselItem } from 'react-bootstrap'
 
 const CarouselComponent = () => {
+
+
+    const ImageURLArray = ["./slider-1.jpg" , "./slider-2.jpg", "./slider-3.jpg"];
+
+
   return (
         <>
         
@@ -17,15 +22,14 @@ const CarouselComponent = () => {
             </ol>
             <div class="carousel-inner" role="listbox">
               <Carousel>
-                <CarouselItem>
-                  <img src="./slider-1.jpg" class="slider-img" />
-                </CarouselItem>
-                <CarouselItem>
-                  <img src="./slider-2.jpg" class="slider-img" />
-                </CarouselItem>
-                <CarouselItem>
-                  <img src="./slider-3.jpg" class="slider-img" />
-                </CarouselItem>
+                {
+                   ImageURLArray.map((eachimgurl) =>      
+                    <CarouselItem>
+                             <img src={eachimgurl} class="slider-img" />
+                    </CarouselItem>
+                
+                    )
+                }
               </Carousel>
             </div>
             <button
@@ -52,7 +56,7 @@ const CarouselComponent = () => {
               ></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div>
+        </div>
         
         </>
   )
