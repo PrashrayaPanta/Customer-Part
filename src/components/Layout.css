@@ -55,6 +55,7 @@ a {
   position: absolute;
   top:270px;
   left:200px;
+  
   animation: movefrombottomtotopforstackedcontent 1s;
 
 }
