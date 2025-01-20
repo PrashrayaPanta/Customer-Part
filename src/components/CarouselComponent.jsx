@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
+import ImageComponent from "./ImageComponent";
 
 const CarouselComponent = () => {
   const ImageURLArray = ["./slider-1.jpg", "./slider-2.jpg", "./slider-3.jpg"];
@@ -24,11 +25,9 @@ const CarouselComponent = () => {
               <CarouselItem>
                 <div class="image-stacked-content">
                   <div>
-                    <img
-                      src={eachimgurl}
-                      class="slider-img"
-              
-                    />
+                 
+                    <ImageComponent url={eachimgurl}/>
+
                   </div>
                   <div class="stacked-content">
                       <h1>We are good </h1>
