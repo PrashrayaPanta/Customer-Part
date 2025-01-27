@@ -1,5 +1,5 @@
 import { Col, Container, Form, Row } from "react-bootstrap";
-import { InputField, SubmitBtn } from "../../components";
+import { InputTextField, SubmitBtn } from "../../components";
 import { useFormik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import http from "../../http";

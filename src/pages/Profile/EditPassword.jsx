@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { Col, Container, Form, Row } from "react-bootstrap";
 
 import * as Yup from "yup";
-import { InputField, SubmitBtn } from "../../components";
+import { InputTextField, SubmitBtn } from "../../components";
 
 import YupPassword from "yup-password";
 import http from "../../http";

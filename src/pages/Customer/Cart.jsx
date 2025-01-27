@@ -56,7 +56,7 @@ const Cart = () => {
   const handleDeleteCartItem = id => {
     // console.log(id);
 
-    console.log("clicked");
+    // console.log("clicked");
 
     let temp = {};
 

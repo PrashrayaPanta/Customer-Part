@@ -16,7 +16,7 @@ const Search = () => {
   //   console.log(products);
 
   useEffect(() => {
-    // setLoading(true);
+    setLoading(true);
     http
       .get(`/products/search?term=${query.get("term")}`)
       .then(({ data }) => setProducts(data))

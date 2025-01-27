@@ -3,6 +3,8 @@ import { imgURL } from "../library";
 import { Link } from "react-router-dom";
 import { CartBtn } from "../components";
 
+// import "./BtnStyle.css";
+
 const ProductCard = ({ product }) => {
   return (
     <div className="my-3 justify-content-center ">

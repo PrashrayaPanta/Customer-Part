@@ -50,11 +50,11 @@ const Layout = () => {
   };
 
   useEffect(() => {
+  
     setLoading(true);
     if (!user) {
       const token = FromStorage("r130fronttoken");
-      // console.log(token);
-
+      console.log(token);
       if (token) {
         http
           .get("/profile")
@@ -115,6 +115,8 @@ const Layout = () => {
 
   return (
     <>
+
+
       <div class="container-fluid">
         <div class="row min-vh-100">
           <div class="col-12">
@@ -230,6 +232,8 @@ const Layout = () => {
                           <Offcanvas.Title>Home</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
+
+                          {/* For small */}
                           <DropDownComponent
                             categories={categories}
                             brands={brands}
@@ -273,6 +277,8 @@ const Layout = () => {
                           </div>
                         </li>
 
+
+                        {/* For large */}
                         <DropDownComponent
                           categories={categories}
                           brands={brands}

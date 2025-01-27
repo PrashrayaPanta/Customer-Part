@@ -7,10 +7,9 @@ const PrivateRoute = ({ element }) => {
   const user = useSelector((state) => state.user.value);
 
 
-  console.log(user);
+  // console.log(user);
   
 
-  // console.log(user);
   
   const navigate = useNavigate();
 

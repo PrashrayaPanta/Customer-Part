@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setCart, clearCart } from "../store";
 import { toast } from "react-toastify";
 
-export const CartBtn = ({ product, quantity = 1 }) => {
+export const CartBtn = ({ product, quantity = 1, className   }) => {
   const cart = useSelector((state) => state.cart.value);
 
   // console.log(cart);

@@ -3,7 +3,37 @@ import { Carousel, CarouselItem } from "react-bootstrap";
 import ImageComponent from "./ImageComponent";
 
 const CarouselComponent = () => {
+
   const ImageURLArray = ["./slider-1.jpg", "./slider-2.jpg", "./slider-3.jpg"];
+
+
+  const ContentToStackForImage = [
+
+      {
+          stackContent: ["We are Good", "Good is alwyas"],
+          ImageUrl: ["./slider-1.jpg"]
+
+      },
+
+
+      {
+
+        stackContent: ["We are bad", "Bad is always bad"],
+        ImageUrl: ["./slider-2.jpg"]
+
+      },
+
+
+      {
+
+        stackContent: ["We are bad", "Bad is always bad"],
+        ImageUrl: ["./slider-3.jpg"]
+
+      }
+
+
+
+  ]
 
   return (
     <>
@@ -25,14 +55,12 @@ const CarouselComponent = () => {
               <CarouselItem>
                 <div class="image-stacked-content">
                   <div>
-                 
                     <ImageComponent url={eachimgurl}/>
-
                   </div>
-                  <div class="stacked-content">
+                  {/* <div class="stacked-content">
                       <h1>We are good </h1>
                       <h1>IKJDSAKFLSAKDJGFLAKDGKL</h1>
-                  </div>
+                  </div> */}
                 </div>
               </CarouselItem>
             ))}

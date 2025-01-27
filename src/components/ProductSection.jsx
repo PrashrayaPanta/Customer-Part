@@ -3,8 +3,8 @@ import { LoadingComponent } from "./Loading";
 import ProductCard from "./ProductCard";
 
 const ProductSection = ({ title, products = [], loading }) => {
-  console.log(title);
-  console.log(products);
+  // console.log(title);
+  // console.log(products);
 
   return (
     <div className="col-12">
