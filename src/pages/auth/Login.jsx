@@ -13,13 +13,10 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../store";
 import { useNavigate } from "react-router-dom";
 
-import { InputTextField, LoadingComponent, SubmitBtn } from "../../components";
-
+import { TextBox, LoadingComponent, SubmitBtn } from "../../components";
 
 export const Login = () => {
-  
   const [remember, setRemember] = useState(false);
-
 
   const dispatch = useDispatch();
 
@@ -54,12 +51,9 @@ export const Login = () => {
       http
         .post("/auth/login", data)
         .then((response) => {
-
           console.log(response.data.token);
-          
-        
 
-          // dispatch(setUser(data.user));
+          dispatch(setUser(data.user));
           ToStorage("r130fronttoken", response.data.token, remember);
           toast.success("login sucess");
 
@@ -83,59 +77,55 @@ export const Login = () => {
 
   return (
     <>
-    
       <Container className="bg-white">
-      <Row>
-        <Col
-          lg="4"
-          className="bg-white rounded-2 shadow-sm py-3 my-3 mx-auto"
-        >
-          <Row>
-            <Col className="text-center">
-              <h1>Login</h1>
-            </Col>
-          </Row>
+        <Row>
+          <Col
+            lg="4"
+            className="bg-white rounded-2 shadow-sm py-3 my-3 mx-auto"
+          >
+            <Row>
+              <Col className="text-center">
+                <h1>Login</h1>
+              </Col>
+            </Row>
 
-          <Row>
-            <Col>
-              <Form onSubmit={formik.handleSubmit}>
-                <InputTextField
-                  label="Email"
-                  name="email"
-                  formik={formik}
-                  type="text"
-                />
-                <InputTextField
-                  type="password"
-                  label="Password"
-                  name="password"
-                  formik={formik}
-                />
-                <Form.Check className="mb-2">
-                  <Form.Check.Input
-                    name="remember"
-                    id="remember"
-                    checked={remember}
-                    onChange={() => setRemember(!remember)}
+            <Row>
+              <Col>
+                <Form onSubmit={formik.handleSubmit}>
+                  <TextBox
+                    label="Email"
+                    name="email"
+                    formik={formik}
+                    type="text"
                   />
-                  <Form.Check.Label htmlFor="remember">
-                    Remember Me
-                  </Form.Check.Label>
-                </Form.Check>
+                  <TextBox
+                    type="password"
+                    label="Password"
+                    name="password"
+                    formik={formik}
+                  />
+                  <Form.Check className="mb-2">
+                    <Form.Check.Input
+                      name="remember"
+                      id="remember"
+                      checked={remember}
+                      onChange={() => setRemember(!remember)}
+                    />
+                    <Form.Check.Label htmlFor="remember">
+                      Remember Me
+                    </Form.Check.Label>
+                  </Form.Check>
 
-                <div className="d-grid">
-                  <SubmitBtn formik={formik} label="Login" />
-                </div>
-                {/* <SubmitBtn formik={formik} label="Add" icon="fa fa-plus" /> */}
-              </Form>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
-
-
-     
+                  <div className="d-grid">
+                    <SubmitBtn formik={formik} label="Login" />
+                  </div>
+                  {/* <SubmitBtn formik={formik} label="Add" icon="fa fa-plus" /> */}
+                </Form>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

@@ -1,8 +1,8 @@
-import { InputTextField } from "./InputTextField";
 import { SubmitBtn } from "./submitBtn";
 import { LoadingComponent } from "./Loading";
 import ProductSection from "./ProductSection";
 
 import { CartBtn } from "./cartBtn";
+import { TextBox } from "./TextBox";
 
-export { InputTextField, SubmitBtn, LoadingComponent, ProductSection, CartBtn };
+export { TextBox, SubmitBtn, LoadingComponent, ProductSection, CartBtn };

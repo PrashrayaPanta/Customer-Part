@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
 
-export const InputTextField = ({ type = "text", label, name, formik, as }) => {
+export const TextBox = ({ type = "text", label, name, formik, as }) => {
   // console.log(label);
   // console.log(name);
   // console.log(formik);

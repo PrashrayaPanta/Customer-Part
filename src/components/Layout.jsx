@@ -13,14 +13,9 @@ import { Dropdown, NavDropdown, Offcanvas } from "react-bootstrap";
 import DropDownComponent from "./DropDownComponent";
 
 const Layout = () => {
-
-  
   const user = useSelector((state) => state.user.value);
 
   const cart = useSelector((state) => state.cart.value);
-
-
-
 
   const [term, setTerm] = useState("");
 
@@ -50,7 +45,6 @@ const Layout = () => {
   };
 
   useEffect(() => {
-  
     setLoading(true);
     if (!user) {
       const token = FromStorage("r130fronttoken");
@@ -59,7 +53,7 @@ const Layout = () => {
         http
           .get("/profile")
           .then(({ data }) => {
-            dispatch(setUser(data))
+            dispatch(setUser(data));
           })
           .catch(() => {})
           .finally(() => setLoading(false));
@@ -115,41 +109,40 @@ const Layout = () => {
 
   return (
     <>
-
-
-      <div class="container-fluid">
-        <div class="row min-vh-100">
-          <div class="col-12">
-            <header class="row " >
-              <div class="col-12 bg-dark py-2 d-md-block">
-                <div class="row">
-                  <div class="col-auto me-auto bg-primary">
-                    <ul class="top-nav">
+      <div className="container-fluid">
+        <div className="row min-vh-100">
+          <div className="col-12">
+            <header className="row ">
+              <div className="col-12 bg-dark py-2 d-md-block">
+                <div className="row">
+                  <div className="col-auto me-auto bg-primary">
+                    <ul className="top-nav">
                       <li>
                         <a href="tel:+123-456-7890">
-                          <i class="fa fa-phone-square me-2"></i>+123-456-7890
+                          <i className="fa fa-phone-square me-2"></i>
+                          +123-456-7890
                         </a>
                       </li>
                       <li>
                         <a href="mailto:mail@ecom.com">
-                          <i class="fa fa-envelope me-2"></i>mail@ecom.com
+                          <i className="fa fa-envelope me-2"></i>mail@ecom.com
                         </a>
                       </li>
                     </ul>
                   </div>
-                  <div class="col-auto bg-secondary">
-                    <ul class="top-nav">
+                  <div className="col-auto bg-secondary">
+                    <ul className="top-nav">
                       {user ? (
                         <>
                           <li>
                             <Link to="/dashboard">
-                              <i class="fas fa-user-edit me-2"></i>
+                              <i className="fas fa-user-edit me-2"></i>
                               {user.name}
                             </Link>
                           </li>
                           <li>
                             <Link onClick={handleLogout}>
-                              <i class="fas fa-sign-in-alt me-2"></i>
+                              <i className="fas fa-sign-in-alt me-2"></i>
                               Logout
                             </Link>
                           </li>
@@ -158,12 +151,12 @@ const Layout = () => {
                         <>
                           <li>
                             <Link to="/register">
-                              <i class="fas fa-user-edit me-2"></i>Register
+                              <i className="fas fa-user-edit me-2"></i>Register
                             </Link>
                           </li>
                           <li>
                             <Link to="/login">
-                              <i class="fas fa-sign-in-alt me-2"></i>Login
+                              <i className="fas fa-sign-in-alt me-2"></i>Login
                             </Link>
                           </li>
                         </>
@@ -173,57 +166,60 @@ const Layout = () => {
                 </div>
               </div>
 
-              <div class="col-12 bg-white pt-4">
-                <div class="row">
-                  <div class="col-lg-auto">
-                    <div class="site-logo text-center text-lg-left">
+              <div className="col-12 bg-white pt-4">
+                <div className="row">
+                  <div className="col-lg-auto">
+                    <div className="site-logo text-center text-lg-left">
                       <a>E-Commerce</a>
                     </div>
                   </div>
-                  <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
+                  <div className="col-lg-5 mx-auto mt-4 mt-lg-0">
                     <form onSubmit={handleSearch}>
-                      <div class="form-group">
-                        <div class="input-group">
+                      <div className="form-group">
+                        <div className="input-group">
                           <input
                             type="search"
-                            class="form-control border-dark"
+                            className="form-control border-dark"
                             placeholder="Search..."
                             onChange={(e) => setTerm(e.target.value)}
                             value={term}
                           />
-                          <button class="btn btn-outline-dark" type="submit">
-                            <i class="fas fa-search"></i>
+                          <button
+                            className="btn btn-outline-dark"
+                            type="submit"
+                          >
+                            <i className="fas fa-search"></i>
                           </button>
                         </div>
                       </div>
                     </form>
                   </div>
-                  <div class="col-lg-auto text-center text-lg-left header-item-holder ">
-                    <a href="#" class="header-item ">
-                      <i class="fas fa-heart me-2"></i>
+                  <div className="col-lg-auto text-center text-lg-left header-item-holder ">
+                    <a href="#" className="header-item ">
+                      <i className="fas fa-heart me-2"></i>
                       <span id="header-favorite">0</span>
                     </a>
-                    <Link to="/cart" class="header-item">
-                      <i class="fas fa-shopping-bag me-2"></i>
-                      <span id="header-qty" class="me-3">
+                    <Link to="/cart" className="header-item">
+                      <i className="fas fa-shopping-bag me-2"></i>
+                      <span id="header-qty" className="me-3">
                         {totalQty}
                       </span>
-                      <i class="fas fa-money-bill-wave me-2"></i>
+                      <i className="fas fa-money-bill-wave me-2"></i>
                       <span id="header-price">{totalPrice}</span>
                     </Link>
                   </div>
                 </div>
 
-                <div class="row">
-                  <nav class="navbar navbar-expand-lg navbar-light bg-white col-12">
+                <div className="row">
+                  <nav className="navbar navbar-expand-lg navbar-light bg-white col-12">
                     <button
-                      class="navbar-toggler d-lg-none border-0"
+                      className="navbar-toggler d-lg-none border-0"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#mainNav"
                     >
                       <span
-                        class="navbar-toggler-icon"
+                        className="navbar-toggler-icon"
                         onClick={handleShow}
                       ></span>
 
@@ -232,7 +228,6 @@ const Layout = () => {
                           <Offcanvas.Title>Home</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-
                           {/* For small */}
                           <DropDownComponent
                             categories={categories}
@@ -242,11 +237,11 @@ const Layout = () => {
                         </Offcanvas.Body>
                       </Offcanvas>
                     </button>
-                    <div class="collapse navbar-collapse" id="mainNav">
-                      <ul class="navbar-nav mx-auto mt-2 mt-lg-0 bg-primary">
-                        <li class="nav-item ">
+                    <div className="collapse navbar-collapse" id="mainNav">
+                      <ul className="navbar-nav mx-auto mt-2 mt-lg-0 bg-primary">
+                        <li className="nav-item ">
                           <Link
-                            class="nav-link "
+                            className="nav-link "
                             to="/"
                             id="electronics"
                             data-bs-toggle="dropdown"
@@ -256,27 +251,26 @@ const Layout = () => {
                             Home
                           </Link>
                           <div
-                            class="dropdown-menu"
+                            className="dropdown-menu"
                             aria-labelledby="electronics"
                           >
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Computers
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Mobile Phones
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Television Sets
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               DSLR Cameras
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Projectors
                             </a>
                           </div>
                         </li>
-
 
                         {/* For large */}
                         <DropDownComponent
@@ -285,14 +279,14 @@ const Layout = () => {
                           large
                         />
 
-                        {/* <li class="nav-item active">
-                          <a class="nav-link" href="/">
-                            Home <span class="sr-only">(current)</span>
+                        {/* <li className="nav-item active">
+                          <a className="nav-link" href="/">
+                            Home <span className="sr-only">(current)</span>
                           </a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li className="nav-item dropdown">
                           <a
-                            class="nav-link dropdown-toggle"
+                            className="nav-link dropdown-toggle"
                             href="#"
                             id="electronics"
                             data-bs-toggle="dropdown"
@@ -302,29 +296,29 @@ const Layout = () => {
                             Electronics
                           </a>
                           <div
-                            class="dropdown-menu"
+                            className="dropdown-menu"
                             aria-labelledby="electronics"
                           >
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Computers
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Mobile Phones
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Television Sets
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               DSLR Cameras
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Projectors
                             </a>
                           </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li className="nav-item dropdown">
                           <a
-                            class="nav-link dropdown-toggle"
+                            className="nav-link dropdown-toggle"
                             href="#"
                             id="fashion"
                             data-bs-toggle="dropdown"
@@ -333,27 +327,27 @@ const Layout = () => {
                           >
                             Fashion
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="fashion">
-                            <a class="dropdown-item" href="category.html">
+                          <div className="dropdown-menu" aria-labelledby="fashion">
+                            <a className="dropdown-item" href="category.html">
                               Men's
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Women's
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Children's
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Accessories
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Footwear
                             </a>
                           </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li className="nav-item dropdown">
                           <a
-                            class="nav-link dropdown-toggle"
+                            className="nav-link dropdown-toggle"
                             href="#"
                             id="books"
                             data-bs-toggle="dropdown"
@@ -362,20 +356,20 @@ const Layout = () => {
                           >
                             Books
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="books">
-                            <a class="dropdown-item" href="category.html">
+                          <div className="dropdown-menu" aria-labelledby="books">
+                            <a className="dropdown-item" href="category.html">
                               Adventure
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Horror
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Romantic
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Children's
                             </a>
-                            <a class="dropdown-item" href="category.html">
+                            <a className="dropdown-item" href="category.html">
                               Non-Fiction
                             </a>
                           </div>
@@ -391,49 +385,49 @@ const Layout = () => {
           {/* Change Part in Mulitple Page */}
           <Outlet />
 
-          <div class="col-12 align-self-end">
-            <footer class="row">
-              <div class="col-12 bg-dark text-white pb-3 pt-5">
-                <div class="row">
-                  <div class="col-lg-2 col-sm-4 text-center text-sm-left mb-sm-0 mb-3">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="footer-logo">
+          <div className="col-12 align-self-end">
+            <footer className="row">
+              <div className="col-12 bg-dark text-white pb-3 pt-5">
+                <div className="row">
+                  <div className="col-lg-2 col-sm-4 text-center text-sm-left mb-sm-0 mb-3">
+                    <div className="row">
+                      <div className="col-12">
+                        <div className="footer-logo">
                           <a href="index.html">E-Commerce</a>
                         </div>
                       </div>
-                      <div class="col-12">
+                      <div className="col-12">
                         <address>
                           221B Baker Street
                           <br />
                           London, England
                         </address>
                       </div>
-                      <div class="col-12">
-                        <a href="#" class="social-icon">
-                          <i class="fab fa-facebook-f"></i>
+                      <div className="col-12">
+                        <a href="#" className="social-icon">
+                          <i className="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-icon">
-                          <i class="fab fa-twitter"></i>
+                        <a href="#" className="social-icon">
+                          <i className="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon">
-                          <i class="fab fa-pinterest-p"></i>
+                        <a href="#" className="social-icon">
+                          <i className="fab fa-pinterest-p"></i>
                         </a>
-                        <a href="#" class="social-icon">
-                          <i class="fab fa-instagram"></i>
+                        <a href="#" className="social-icon">
+                          <i className="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-icon">
-                          <i class="fab fa-youtube"></i>
+                        <a href="#" className="social-icon">
+                          <i className="fab fa-youtube"></i>
                         </a>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-sm-8 text-center text-sm-left mb-sm-0 mb-3">
-                    <div class="row">
-                      <div class="col-12 text-uppercase">
+                  <div className="col-lg-3 col-sm-8 text-center text-sm-left mb-sm-0 mb-3">
+                    <div className="row">
+                      <div className="col-12 text-uppercase">
                         <h4>Who are we?</h4>
                       </div>
-                      <div class="col-12 text-justify">
+                      <div className="col-12 text-justify">
                         <p>
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit. Nullam imperdiet vel ligula vel sodales. Aenean
@@ -450,13 +444,13 @@ const Layout = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-2 col-sm-3 col-5 ms-lg-auto ms-sm-0 ms-auto mb-sm-0 mb-3">
-                    <div class="row">
-                      <div class="col-12 text-uppercase">
+                  <div className="col-lg-2 col-sm-3 col-5 ms-lg-auto ms-sm-0 ms-auto mb-sm-0 mb-3">
+                    <div className="row">
+                      <div className="col-12 text-uppercase">
                         <h4>Quick Links</h4>
                       </div>
-                      <div class="col-12">
-                        <ul class="footer-nav">
+                      <div className="col-12">
+                        <ul className="footer-nav">
                           <li>
                             <a href="#">Home</a>
                           </li>
@@ -476,13 +470,13 @@ const Layout = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-1 col-sm-2 col-4 me-auto mb-sm-0 mb-3">
-                    <div class="row">
-                      <div class="col-12 text-uppercase text-underline">
+                  <div className="col-lg-1 col-sm-2 col-4 me-auto mb-sm-0 mb-3">
+                    <div className="row">
+                      <div className="col-12 text-uppercase text-underline">
                         <h4>Help</h4>
                       </div>
-                      <div class="col-12">
-                        <ul class="footer-nav">
+                      <div className="col-12">
+                        <ul className="footer-nav">
                           <li>
                             <a href="#">FAQs</a>
                           </li>
@@ -502,23 +496,23 @@ const Layout = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-sm-6 text-center text-sm-left">
-                    <div class="row">
-                      <div class="col-12 text-uppercase">
+                  <div className="col-lg-3 col-sm-6 text-center text-sm-left">
+                    <div className="row">
+                      <div className="col-12 text-uppercase">
                         <h4>Newsletter</h4>
                       </div>
-                      <div class="col-12">
+                      <div className="col-12">
                         <form action="#">
-                          <div class="mb-3">
+                          <div className="mb-3">
                             <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Enter your email..."
                               required
                             />
                           </div>
-                          <div class="mb-3">
-                            <button class="btn btn-outline-light text-uppercase">
+                          <div className="mb-3">
+                            <button className="btn btn-outline-light text-uppercase">
                               Subscribe
                             </button>
                           </div>
@@ -533,65 +527,64 @@ const Layout = () => {
         </div>
       </div>
 
-      <div class="toast-container position-fixed bottom-0 start-0 p-3">
-        <div class="toast align-items-center text-white bg-success border-0">
-          <div class="d-flex">
-            <div class="toast-body">
-              <i class="fas fa-check-circle me-2"></i>
+      <div className="toast-container position-fixed bottom-0 start-0 p-3">
+        <div className="toast align-items-center text-white bg-success border-0">
+          <div className="d-flex">
+            <div className="toast-body">
+              <i className="fas fa-check-circle me-2"></i>
               This is a success alert message.
             </div>
             <button
               type="button"
-              class="btn-close btn-close-white me-2 m-auto"
+              className="btn-close btn-close-white me-2 m-auto"
               data-bs-dismiss="toast"
               aria-label="Close"
             ></button>
           </div>
         </div>
-        <div class="toast align-items-center text-white bg-danger border-0">
-          <div class="d-flex">
-            <div class="toast-body">
-              <i class="fas fa-times-circle me-2"></i>
+        <div className="toast align-items-center text-white bg-danger border-0">
+          <div className="d-flex">
+            <div className="toast-body">
+              <i className="fas fa-times-circle me-2"></i>
               This is an error alert message.
             </div>
             <button
               type="button"
-              class="btn-close btn-close-white me-2 m-auto"
+              className="btn-close btn-close-white me-2 m-auto"
               data-bs-dismiss="toast"
               aria-label="Close"
             ></button>
           </div>
         </div>
-        <div class="toast align-items-center text-white bg-warning border-0">
-          <div class="d-flex">
-            <div class="toast-body">
-              <i class="fas fa-exclamation-circle me-2"></i>
+        <div className="toast align-items-center text-white bg-warning border-0">
+          <div className="d-flex">
+            <div className="toast-body">
+              <i className="fas fa-exclamation-circle me-2"></i>
               This is a warning alert message.
             </div>
             <button
               type="button"
-              class="btn-close btn-close-white me-2 m-auto"
+              className="btn-close btn-close-white me-2 m-auto"
               data-bs-dismiss="toast"
               aria-label="Close"
             ></button>
           </div>
         </div>
-        <div class="toast align-items-center text-white bg-info border-0">
-          <div class="d-flex">
-            <div class="toast-body">
-              <i class="fas fa-info-circle me-2"></i>
+        <div className="toast align-items-center text-white bg-info border-0">
+          <div className="d-flex">
+            <div className="toast-body">
+              <i className="fas fa-info-circle me-2"></i>
               This is a error alert message.
             </div>
             <button
               type="button"
-              class="btn-close btn-close-white me-2 m-auto"
+              className="btn-close btn-close-white me-2 m-auto"
               data-bs-dismiss="toast"
               aria-label="Close"
             ></button>
           </div>
         </div>
       </div>
-    
     </>
   );
 };

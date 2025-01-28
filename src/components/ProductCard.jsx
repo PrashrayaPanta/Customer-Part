@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
               <img
                 src={imgURL(product.images[0])}
                 alt=""
-                srcset=""
+                srcSet=""
                 className="img-fluid"
               />
             </Link>

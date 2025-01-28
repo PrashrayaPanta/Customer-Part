@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { Col, Container, Form, Row } from "react-bootstrap";
 
 import * as Yup from "yup";
-import { InputTextField, SubmitBtn } from "../../components";
+import { TextBox, SubmitBtn } from "../../components";
 
 import YupPassword from "yup-password";
 import http from "../../http";
@@ -12,8 +12,6 @@ import { useEffect } from "react";
 YupPassword(Yup);
 
 export const Password = () => {
- 
-
   useEffect(() => {
     document.title = "Password";
   }, []);
@@ -57,19 +55,19 @@ export const Password = () => {
         <Row>
           <Col>
             <Form onSubmit={formik.handleSubmit}>
-              <InputField
+              <TextBox
                 label="Old Password"
                 name="oldPassword"
                 formik={formik}
                 type="text"
               />
-              <InputField
+              <TextBox
                 type="text"
                 label="New Password"
                 name="newPassword"
                 formik={formik}
               />
-              <InputField
+              <TextBox
                 type="text"
                 label="Confirm Password"
                 name="confirmPassword"
@@ -85,4 +83,3 @@ export const Password = () => {
     </Container>
   );
 };
-

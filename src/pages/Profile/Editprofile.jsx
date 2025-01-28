@@ -1,5 +1,5 @@
 import { Col, Container, Form, Row } from "react-bootstrap";
-import { InputTextField, SubmitBtn } from "../../components";
+import { TextBox, SubmitBtn } from "../../components";
 import { useFormik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import http from "../../http";
@@ -52,19 +52,14 @@ export const Edit = () => {
           <Row>
             <Col>
               <Form onSubmit={formik.handleSubmit}>
-                <InputField
-                  label="Name"
-                  name="name"
-                  formik={formik}
-                  type="text"
-                />
-                <InputField
+                <TextBox label="Name" name="name" formik={formik} type="text" />
+                <TextBox
                   type="text"
                   label="Phone"
                   name="phone"
                   formik={formik}
                 />
-                <InputField
+                <TextBox
                   type="text"
                   label="Address"
                   name="address"
